@@ -1,4 +1,3 @@
-import React from 'react';
 import { Product } from '../App';
 
 
@@ -20,7 +19,7 @@ interface ProductItemProps {
 }
 
 const ProductCard = ({ product }:ProductItemProps) => {
-    const { product_id, title_translated, gpt_description, image_urls } = product;
+    const { title_translated, gpt_description, image_urls } = product;
 
     const firstImageUrl = extractFirstImageUrl(image_urls);
 
