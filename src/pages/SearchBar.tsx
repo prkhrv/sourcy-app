@@ -12,6 +12,12 @@ const SearchBar = ({ fetchData}: SearchBarProps) => {
     const [searchTerm, setSearchTerm] = React.useState("");
     const searchInputRef = React.useRef<HTMLInputElement>(null);  
 
+    const handleKeyDown = (event:any) => {
+      if (event.key === 'Enter') {
+        handleSearch(event);
+      }
+    };
+
     const handleSearch = (e: any) => {
     e.preventDefault();
 
@@ -40,6 +46,7 @@ const SearchBar = ({ fetchData}: SearchBarProps) => {
           className="flex-grow p-2 border border-black rounded-lg"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <Button
           onClick={handleSearch}
